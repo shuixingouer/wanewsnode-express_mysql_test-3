@@ -26,20 +26,21 @@ router.post('/channel/list', (req, res) => {
         }
         if (result) {
             jsonWrite(res, result);
-            console.log(result);
         }
     })
 });
 // 增加频道接口
-router.post('/channel', (req, res) => {
+router.post('/channel/:id' , (req, res) => {
     var strChannelId = $sql.channel.num;
-    var param = req.query || req.params;
-    conn.query(strChannelId, [param.channel_id], function(err, result) {
+    param = req.body.id;
+    //console.log(param);
+    conn.query(strChannelId, [param], function(err, result) {
         if (err) {
             console.log(err);
         }
         if (result) {
             jsonWrite(res, result);
+            //console.log(1);
         }
     })
 });
