@@ -34,13 +34,29 @@ router.post('/channel/:id' , (req, res) => {
     var strChannelId = $sql.channel.num;
     param = req.body.id;
     //console.log(param);
-    conn.query(strChannelId, [param], function(err, result) {
+    var num=0;
+    conn.query(strChannelId, [param,num], function(err, result) {
         if (err) {
             console.log(err);
         }
         if (result) {
             jsonWrite(res, result);
             //console.log(1);
+        }
+    })
+});
+// 增加静态内容详情接口
+router.post('/static/detail/:id' , (req, res) => {
+    var strStaticDetail = $sql.channel.num;
+    param = req.body.id;
+    //console.log(param);
+    conn.query(strStaticDetail, [param], function(err, result) {
+        if (err) {
+            console.log(err);
+        }
+        if (result) {
+            jsonWrite(res, result);
+            console.log(1);
         }
     })
 });
