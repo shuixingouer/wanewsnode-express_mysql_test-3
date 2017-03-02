@@ -47,7 +47,7 @@ router.post('/channel/:id' , (req, res) => {
 });
 // 增加静态内容详情接口
 router.post('/static/detail/:id' , (req, res) => {
-    var strStaticDetail = $sql.channel.num;
+    var strStaticDetail = $sql.static.detail;
     param = req.body.id;
     //console.log(param);
     conn.query(strStaticDetail, [param], function(err, result) {
